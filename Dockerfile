@@ -1,11 +1,9 @@
-# gleiche Version wie dein bestehender Service
 FROM n8nio/n8n:1.97.1
 
 USER root
 
-RUN apt-get update && \
-    apt-get install -y ffmpeg curl wget && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+    apk add --no-cache ffmpeg curl wget && \
+    rm -rf /var/cache/apk/*
 
 USER node
